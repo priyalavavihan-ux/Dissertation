@@ -1,31 +1,35 @@
-"""
-Entity Types:
-- CAMPUS_LOCATION  : Named buildings (e.g. "Ellison Building")
-- FACILITY_TYPE    : Generic facilities (e.g. "cafe", "gym")
-- TIME_REFERENCE   : Time expressions (e.g. "today", "9am")
-- EVENT_TYPE       : Event categories (e.g. "seminar", "open day")
-"""
-
 import spacy
-import os
-from typing import List, Dict
-
-MODEL_PATH = os.path.join(os.path.dirname(__file__), "../../../data/processed/ner_model")
+from pathlib import Path
 
 
 class NERExtractor:
     def __init__(self):
-        self.nlp = None
-        self._load_model()
+        model_path = Path(__file__).resolve().parents[3] / "models" / "ner" / "model-best"
 
-    def _load_model(self):
-        if os.path.exists(MODEL_PATH):
-            self.nlp = spacy.load(MODEL_PATH)
+        if not model_path.exists():
+            print(f"[NER] WARNING: Model not found at {model_path}")
+            self.nlp = None
         else:
-            self.nlp = spacy.blank("en")
+            self.nlp = spacy.load(str(model_path))
+            print(f"[NER] Model loaded successfully")
 
-    def extract(self, query: str) -> List[Dict]:
-        doc = self.nlp(query)
-        return [{"text": ent.text, "label": ent.label_, "start": ent.start_char, "end": ent.end_char} for ent in doc.ents]
+    def extract(self, text: str) -> dict:
+        result = {
+            "CAMPUS_LOCATION": [],
+            "FACILITY_TYPE": [],
+            "TIME_REFERENCE": [],
+            "EVENT_TYPE": [],
+        }
+        if self.nlp is None:
+            return result
+        doc = self.nlp(text)
+        for ent in doc.ents:
+            if ent.label_ in result:
+                result[ent.label_].append(ent.text)
+        return result
 
-extractor = NERExtractor()
+    def extract_flat(self, text: str) -> list:
+        if self.nlp is None:
+            return []
+        doc = self.nlp(text)
+        return [(ent.text, ent.label_) for ent in doc.ents]

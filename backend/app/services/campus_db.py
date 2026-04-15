@@ -84,7 +84,79 @@ FACILITY_HOURS = {
             "Wednesday": "9:00am - 9:00pm", "Thursday": "9:00am - 9:00pm",
             "Friday": "9:00am - 11:00pm", "Saturday": "11:00am - 11:00pm", "Sunday": "Closed"
         }
-    }
+    },
+    "ellison building": {
+        "name": "Ellison Building",
+        "hours": {
+            "Monday": "7:00am - 10:00pm", "Tuesday": "7:00am - 10:00pm",
+            "Wednesday": "7:00am - 10:00pm", "Thursday": "7:00am - 10:00pm",
+            "Friday": "7:00am - 9:00pm", "Saturday": "9:00am - 5:00pm", "Sunday": "Closed"
+        }
+    },
+    "northumberland building": {
+        "name": "Northumberland Building",
+        "hours": {
+            "Monday": "7:00am - 10:00pm", "Tuesday": "7:00am - 10:00pm",
+            "Wednesday": "7:00am - 10:00pm", "Thursday": "7:00am - 10:00pm",
+            "Friday": "7:00am - 9:00pm", "Saturday": "9:00am - 5:00pm", "Sunday": "Closed"
+        }
+    },
+    "city campus east": {
+        "name": "City Campus East",
+        "hours": {
+            "Monday": "7:00am - 10:00pm", "Tuesday": "7:00am - 10:00pm",
+            "Wednesday": "7:00am - 10:00pm", "Thursday": "7:00am - 10:00pm",
+            "Friday": "7:00am - 9:00pm", "Saturday": "9:00am - 5:00pm", "Sunday": "Closed"
+        }
+    },
+    "coach lane campus": {
+        "name": "Coach Lane Campus",
+        "hours": {
+            "Monday": "7:30am - 9:00pm", "Tuesday": "7:30am - 9:00pm",
+            "Wednesday": "7:30am - 9:00pm", "Thursday": "7:30am - 9:00pm",
+            "Friday": "7:30am - 7:00pm", "Saturday": "9:00am - 4:00pm", "Sunday": "Closed"
+        }
+    },
+    "cafe": {
+        "name": "Campus Cafe",
+        "hours": {
+            "Monday": "8:00am - 6:00pm", "Tuesday": "8:00am - 6:00pm",
+            "Wednesday": "8:00am - 6:00pm", "Thursday": "8:00am - 6:00pm",
+            "Friday": "8:00am - 5:00pm", "Saturday": "10:00am - 3:00pm", "Sunday": "Closed"
+        }
+    },
+    "gym": {
+        "name": "Campus Gym (Sport Central)",
+        "hours": {
+            "Monday": "6:30am - 10:00pm", "Tuesday": "6:30am - 10:00pm",
+            "Wednesday": "6:30am - 10:00pm", "Thursday": "6:30am - 10:00pm",
+            "Friday": "6:30am - 9:00pm", "Saturday": "8:00am - 8:00pm", "Sunday": "9:00am - 7:00pm"
+        }
+    },
+    "library": {
+        "name": "City Campus Library",
+        "hours": {
+            "Monday": "8:00am - 11:00pm", "Tuesday": "8:00am - 11:00pm",
+            "Wednesday": "8:00am - 11:00pm", "Thursday": "8:00am - 11:00pm",
+            "Friday": "8:00am - 9:00pm", "Saturday": "10:00am - 6:00pm", "Sunday": "10:00am - 8:00pm"
+        }
+    },
+    "printing room": {
+        "name": "Printing Room",
+        "hours": {
+            "Monday": "8:00am - 9:00pm", "Tuesday": "8:00am - 9:00pm",
+            "Wednesday": "8:00am - 9:00pm", "Thursday": "8:00am - 9:00pm",
+            "Friday": "8:00am - 7:00pm", "Saturday": "10:00am - 4:00pm", "Sunday": "Closed"
+        }
+    },
+    "student services": {
+        "name": "Student Services",
+        "hours": {
+            "Monday": "9:00am - 5:00pm", "Tuesday": "9:00am - 5:00pm",
+            "Wednesday": "9:00am - 5:00pm", "Thursday": "9:00am - 5:00pm",
+            "Friday": "9:00am - 4:30pm", "Saturday": "Closed", "Sunday": "Closed"
+        }
+    },
 }
 
 CAMPUS_EVENTS = [

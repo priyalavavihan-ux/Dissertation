@@ -1,5 +1,6 @@
 from app.nlp.intent.classifier import classifier
-from app.nlp.ner.extractor import extractor
+from app.nlp.ner.extractor import NERExtractor
+extractor = NERExtractor()
 from app.models.schemas import QueryResponse, IntentResult, EntityResult
 from app.services.handlers import directions_handler, hours_handler, proximity_handler, events_handler
 
@@ -11,8 +12,12 @@ INTENT_HANDLERS = {
 }
 
 async def handle_query(query: str) -> QueryResponse:
-    raw_entities = extractor.extract(query)
-    entities = [EntityResult(**e) for e in raw_entities]
+    raw_entities = extractor.extract_flat(query)
+    entities = []
+    for text, label in raw_entities:
+        start = query.find(text)
+        end = start + len(text) if start != -1 else 0
+        entities.append(EntityResult(text=text, label=label, start=start, end=end))
 
     try:
         intent_label, confidence = classifier.predict(query)
